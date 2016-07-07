@@ -21,14 +21,14 @@
         android:layout_gravity="center"
         />
 
-    <Button
-        android:layout_width="300dp"
-        android:layout_height="100dp"
-        android:layout_gravity="center"
-        android:text="엉터리 생고기"
 
-        />
+    <ListView
+        android:id="@+id/LV1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
+
+    </ListView>
 
 
 </LinearLayout>

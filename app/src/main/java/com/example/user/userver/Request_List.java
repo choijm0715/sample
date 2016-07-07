@@ -6,6 +6,10 @@ import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.ListView;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class Request_List extends AppCompatActivity {
 
@@ -24,6 +28,28 @@ public class Request_List extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
+
+        List<CustomDataModel> list = new ArrayList<>();
+//        String company;
+//        String explanation;
+//        String date;
+//        String situation;
+//        String money;
+
+        list.add(new CustomDataModel("엉터리생고기1", "홍길동외 2인 식대", "20170707", "승인대기", "23500"));
+        list.add(new CustomDataModel("엉터리생고기2", "홍길동외 2인 식대", "20170707", "승인대기", "23500"));
+        list.add(new CustomDataModel("엉터리생고기3", "홍길동외 2인 식대", "20170707", "승인대기", "45500"));
+        list.add(new CustomDataModel("엉터리생고기4", "홍길동외 2인 식대", "20170707", "승인대기", "500"));
+        list.add(new CustomDataModel("엉터리생고기5", "홍길동외 2인 식대", "20170707", "승인대기", "23500"));
+        list.add(new CustomDataModel("엉터리생고기6", "홍길동외 2인 식대", "20170707", "승인대기", "23500"));
+        list.add(new CustomDataModel("엉터리생고기7", "홍길동외 2인 식대", "20170707", "승인대기", "23500"));
+
+        ListView listView = (ListView)findViewById(R.id.LV1);
+
+        CustomListViewAdapter adapter = new CustomListViewAdapter(this);
+        adapter.setListData(list);
+
+        listView.setAdapter(adapter);
     }
 
 }

@@ -12,7 +12,7 @@
     android:orientation="vertical">
 
     <TextView
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="10dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="사용처"/>
@@ -72,8 +72,7 @@
     <Spinner
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/spin"
-        android:entries="@array/account_list">
+        android:id="@+id/spin">
 
     </Spinner>
 
