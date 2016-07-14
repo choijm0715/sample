@@ -36,13 +36,13 @@ public class Request_List extends AppCompatActivity {
 //        String situation;
 //        String money;
 
-        list.add(new CustomDataModel("엉터리생고기1", "홍길동외 2인 식대", "20170707", "승인대기", "23500"));
-        list.add(new CustomDataModel("엉터리생고기2", "홍길동외 2인 식대", "20170707", "승인대기", "23500"));
-        list.add(new CustomDataModel("엉터리생고기3", "홍길동외 2인 식대", "20170707", "승인대기", "45500"));
-        list.add(new CustomDataModel("엉터리생고기4", "홍길동외 2인 식대", "20170707", "승인대기", "500"));
-        list.add(new CustomDataModel("엉터리생고기5", "홍길동외 2인 식대", "20170707", "승인대기", "23500"));
-        list.add(new CustomDataModel("엉터리생고기6", "홍길동외 2인 식대", "20170707", "승인대기", "23500"));
-        list.add(new CustomDataModel("엉터리생고기7", "홍길동외 2인 식대", "20170707", "승인대기", "23500"));
+        list.add(new CustomDataModel("엉터리생고기1", "홍길동외 2인 식대", "20160607", "승인대기", "23500"));
+        list.add(new CustomDataModel("엉터리생고기2", "홍길동외 3인 식대", "20160407", "승인대기", "29500"));
+        list.add(new CustomDataModel("엉터리생고기3", "홍길동외 2인 식대", "20160307", "승인대기", "45500"));
+        list.add(new CustomDataModel("엉터리생고기4", "홍길동외 3인 식대", "20160207", "승인대기", "500"));
+        list.add(new CustomDataModel("엉터리생고기5", "홍길동외 2인 식대", "20160107", "승인대기", "23500"));
+        list.add(new CustomDataModel("엉터리생고기6", "홍길동외 3인 식대", "20160610", "승인대기", "20500"));
+        list.add(new CustomDataModel("엉터리생고기7", "홍길동외 2인 식대", "20160702", "승인대기", "23500"));
 
         ListView listView = (ListView)findViewById(R.id.LV1);
 

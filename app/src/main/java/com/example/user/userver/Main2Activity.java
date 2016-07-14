@@ -32,7 +32,7 @@ public class Main2Activity extends AppCompatActivity {
         String pwd = intent.getStringExtra("pwd");
 
         TextView tv = (TextView)findViewById(R.id.View_id);
-        tv.setText(id + "\n" + pwd);
+        tv.setText("아이디 " + id + "\n" + "패스워드 " + pwd);
 
 
     }

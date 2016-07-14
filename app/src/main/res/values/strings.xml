@@ -3,11 +3,7 @@
     <string name="action_settings">Settings</string>
     <string name="title_activity_expense_request">ExpenseRequest</string>
 
-    <string-array name="account_list">
-        <item>account1</item>
-        <item>account2</item>
 
-    </string-array>
     <string name="title_activity_request__list">Request_List</string>
     <string name="title_activity_expense_detail">ExpenseDetail</string>
     <string name="title_activity_main2">Main2Activity</string>

@@ -70,9 +70,11 @@
         android:text="계정"/>
 
     <Spinner
+        android:id="@+id/account"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/spin">
+        >
+
 
     </Spinner>
 
