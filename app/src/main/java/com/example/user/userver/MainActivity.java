@@ -2,13 +2,13 @@ package com.example.user.userver;
 
 import android.content.Context;
 import android.content.Intent;
-import android.os.AsyncTask;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
+import android.text.TextUtils;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -16,25 +16,27 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
-import java.net.ConnectException;
-import java.net.HttpURLConnection;
-import java.net.SocketTimeoutException;
-import java.net.URL;
-
 public class MainActivity extends AppCompatActivity {
 
     private Context CONTEXT;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+
+
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         CONTEXT = this;
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolBar);
+        toolbar.setTitle("로그인");
+        toolbar.setTitleTextColor(Color.WHITE);
         setSupportActionBar(toolbar);
+
+
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -51,23 +53,40 @@ public class MainActivity extends AppCompatActivity {
 
 
 
+
+
+
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 //                String show_id = EditText_id.getText().toString();
 //                String show_pwd = EditText_pwd.getText().toString();
 
-//                Intent intent = new Intent(getApplicationContext(), Main2Activity.class);
-//                intent.putExtra("id", show_id);
-//                intent.putExtra("pwd", show_pwd);
 
-//                startActivity(intent);
+
+
                 EditText id = (EditText)findViewById(R.id.EditText_id);
                 EditText pwd = (EditText)findViewById(R.id.EditText_pwd);
                 String strId = id.getText().toString();
                 String strPwd = pwd.getText().toString();
 
 
+
+                if (TextUtils.isEmpty(id.getText()) || TextUtils.isEmpty(pwd.getText())) {
+                    Toast.makeText(MainActivity.this, "아이디와 비밀번호를 입력하세요", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+
+
+                Intent intent = new Intent(getApplicationContext(), Request_List.class);
+//                intent.putExtra("id", show_id);
+//                intent.putExtra("pwd", show_pwd);
+
+                startActivity(intent);
+
+
+/*
                 if(strId.equals("123")) {
                     if(strPwd.equals("000")) {
                         new httpTask().executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, "login_do_get.php?id=" + strId + "&pwd="+ strPwd, " ");
@@ -77,7 +96,7 @@ public class MainActivity extends AppCompatActivity {
                 } else {
                     new httpTask().executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, "login_do_get.php?id=" + strId + "&pwd="+ strPwd, " ");
                 }
-
+*/
 
 
 
@@ -88,6 +107,8 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
+
+
 
     public void onClick(View view) {
 
@@ -119,7 +140,7 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-
+/*
     //AsyncTask<param,Progress,Result>
     private class httpTask extends AsyncTask<String, Void, String> {
         @Override
@@ -215,6 +236,8 @@ public class MainActivity extends AppCompatActivity {
             }
         }
     }
+
+    */
 
 
 

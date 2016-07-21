@@ -2,7 +2,6 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:paddingTop="10dp"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
@@ -10,16 +9,24 @@
     tools:showIn="@layout/activity_request__list"
     android:orientation="vertical">
 
-
-
-    <TextView
-        android:layout_width="wrap_content"
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    <include
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="경비관리"
-        android:textColor="#000000"
-        android:textSize="20dp"
-        android:layout_gravity="center"
-        />
+        layout="@layout/toolbar_layout"/>
+
+        <ImageView
+            android:id="@+id/addButton"
+            android:src="@android:drawable/ic_menu_add"
+            android:padding="10dp"
+            android:layout_gravity="right|center_vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </FrameLayout>
+
+
 
 
     <ListView
