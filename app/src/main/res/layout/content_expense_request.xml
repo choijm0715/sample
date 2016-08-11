@@ -47,7 +47,8 @@
         android:text="사용처"/>
 
     <EditText
-        android:layout_width="wrap_content"
+        android:id="@+id/place"
+        android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:text="스타벅스 종로점"/>
 
@@ -59,7 +60,8 @@
         />
 
     <EditText
-        android:layout_width="wrap_content"
+        android:id="@+id/money"
+        android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:layout_gravity="right"
         android:textSize="20dp"
@@ -100,7 +102,8 @@
         android:text="적요(메모)"/>
 
     <EditText
-        android:layout_width="wrap_content"
+        android:id="@+id/memo"
+        android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:text="적요"
         android:textColor="#000000"
@@ -127,6 +130,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="영수증"/>
+
+
 
 </LinearLayout>
 

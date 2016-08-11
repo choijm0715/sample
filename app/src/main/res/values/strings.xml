@@ -7,4 +7,9 @@
     <string name="title_activity_request__list">Request_List</string>
     <string name="title_activity_expense_detail">ExpenseDetail</string>
     <string name="title_activity_main2">Main2Activity</string>
+
+
+    <!-- 공통패키지 텍스트 -->
+    <string name="common_text_confirm">확인</string>
+    <string name="common_text_error">오류</string>
 </resources>
