@@ -9,12 +9,17 @@ import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import org.json.JSONArray;
+import org.json.JSONObject;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -24,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
-
+        Log.d("jm","시작");
 
 
         super.onCreate(savedInstanceState);
@@ -52,38 +57,108 @@ public class MainActivity extends AppCompatActivity {
         Button login = (Button)findViewById(R.id.btn_login);
 
 
+        try {
 
+
+
+            if (!TextUtils.isEmpty(SharedPref.getUserId(this)) && !TextUtils.isEmpty(SharedPref.getPwd(this))) {
+                // TODO : 로그인 API 호출
+                Intent intent = new Intent(this, Request_List.class);
+                startActivity(intent);
+                finish();
+                return;
+            }
+
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
 
 
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                try {
+
+
+                    Log.d("jm", "눌림");
+                    CommNetwork commNT = new CommNetwork(MainActivity.this, new onNetworkResponseListener() {
+
+                        EditText id = (EditText) findViewById(R.id.EditText_id);
+                        EditText pwd = (EditText) findViewById(R.id.EditText_pwd);
+
+                        @Override
+                        public void onSuccess(String api_key, JSONObject response) {
+                            SharedPref.putUserId(MainActivity.this, id.getText().toString());
+                            SharedPref.putPwd(MainActivity.this, pwd.getText().toString());
+                            Log.d("jm", "success");
+
+                            Intent intent = new Intent(MainActivity.this, Request_List.class);
+                            startActivity(intent);
+                            finish();
+
+                        }
+
+                        @Override
+                        public void onFailure(String api_key, String error_cd, String error_msg) {
+                            // 실패시
+                            Toast.makeText(MainActivity.this, "실패", Toast.LENGTH_SHORT).show();
+                        }
+
+                    });
+
+                    EditText id = (EditText) findViewById(R.id.EditText_id);
+                    EditText pwd = (EditText) findViewById(R.id.EditText_pwd);
+
+                    JSONObject viewObject = new JSONObject();
+
+                        viewObject.put("USER_ID", id.getText().toString());
+                        viewObject.put("PWD", pwd.getText().toString());
+
+
+                        commNT.requestToServer("LOGIN_R001", viewObject);
+
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+
+
+
+
+
+
+
+
+
+
+
 //                String show_id = EditText_id.getText().toString();
 //                String show_pwd = EditText_pwd.getText().toString();
 
 
 
 
-                EditText id = (EditText)findViewById(R.id.EditText_id);
-                EditText pwd = (EditText)findViewById(R.id.EditText_pwd);
-                String strId = id.getText().toString();
-                String strPwd = pwd.getText().toString();
-
-
-
-                if (TextUtils.isEmpty(id.getText()) || TextUtils.isEmpty(pwd.getText())) {
-                    Toast.makeText(MainActivity.this, "아이디와 비밀번호를 입력하세요", Toast.LENGTH_SHORT).show();
-                    return;
-                }
-
-
-
-                Intent intent = new Intent(getApplicationContext(), Request_List.class);
+//                EditText id = (EditText)findViewById(R.id.EditText_id);
+//                EditText pwd = (EditText)findViewById(R.id.EditText_pwd);
+//                String strId = id.getText().toString();
+//                String strPwd = pwd.getText().toString();
+//
+//
+//
+//                if (TextUtils.isEmpty(id.getText()) || TextUtils.isEmpty(pwd.getText())) {
+//                    Toast.makeText(MainActivity.this, "아이디와 비밀번호를 입력하세요", Toast.LENGTH_SHORT).show();
+//                    return;
+//                }
+//
+//
+//
+//                Intent intent = new Intent(getApplicationContext(), Request_List.class);
 //                intent.putExtra("id", show_id);
 //                intent.putExtra("pwd", show_pwd);
 
-                startActivity(intent);
+                //startActivity(intent);
 
 
 /*
@@ -103,6 +178,8 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+
+
 
 
 
@@ -238,6 +315,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     */
+
 
 
 

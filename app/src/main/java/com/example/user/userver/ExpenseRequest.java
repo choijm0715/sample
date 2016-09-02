@@ -219,7 +219,7 @@ public class ExpenseRequest extends AppCompatActivity implements onNetworkRespon
             } else if ("EXPENSE_I001".equals(api_key)) {
                 // 경비신청
                 if (!TextUtils.isEmpty(response.getString("EXPENSE_SEQ"))) {
-                    Intent intent = new Intent(ExpenseRequest.this, Request_List.class);
+                    Intent intent = new Intent(ExpenseRequest.this, ExpenseDetail.class);
                     intent.putExtra("EXPENSE_SEQ", response.getString("EXPENSE_SEQ"));
                     startActivity(intent);
                     finish();
